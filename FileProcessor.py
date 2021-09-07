@@ -14,7 +14,6 @@ if __name__ == "__main__":
             to_rmv_list.append(data_line)
     for r in to_rmv_list:
         data.remove(r)
-    del r
     del to_rmv_list
     del data_line
     for l in data:
