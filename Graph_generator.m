@@ -1,5 +1,5 @@
 clear;
-filename = input('Type the name of the file that was output from FileProcessor2.py: ')
+filename = input('Type the name of the file that was output from FileProcessor.py: ')
 data = load(filename,'-ascii');
 %initiate color for the bubbles
 the_color = [0, 0.4470, 0.7410];
@@ -12,6 +12,10 @@ yLabels = {'voiced-unvoiced intensity ratio', 'late pitch peak', 'breathiness', 
 gra = axes('XLim', [-1800,1800], 'XTick', graph_scale, 'YLim', [0,26], 'YTick', y_scale);
 %setting y-axis labels
 set(gra, 'YTickLabel', yLabels);
+%Sets the title for the x-axis.
+XAxisLabel = get(gra,'XLabel');
+set(XAxisLabel,'String','milliseconds');
+%Gets the size of the data array so it can be iterated accross.
 data_size = size(data);
 for line = 1:data_size(1)
     rectThickness = data(line);
@@ -98,7 +102,8 @@ for line = 1:data_size(1)
         set(r(line), 'Curvature', curve);
     end
 end
-%TODO make key rectangles at y=22.5 and y=24.5
+
+%Creates legend rectangles.
 %-1000 - -400 with a length of 200
 %large will have a curve of 5/8
 %height of 22 and 24
