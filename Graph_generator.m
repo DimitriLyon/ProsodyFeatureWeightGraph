@@ -121,4 +121,9 @@ rectLegend(3,2) = rectangle('Position', [-600,24.375,200,.25], 'Curvature', [1/8
 legend(1) = text(-300,22.5,'negative weights: > .08,> .04,> .02');
 legend(2) = text(-300,24.5,'positive weights: > .08,> .04,> .02');
 
-
+%Code to save the figure
+filenameSize = size(filename);
+filenameSize = filenameSize(2);
+fig = get(gra,'Parent');
+figname = cat(2,filename(1:filenameSize-3),'fig');
+saveas(fig,figname);
